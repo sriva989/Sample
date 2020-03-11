@@ -1,0 +1,13 @@
+stage ('Deployment')
+ {
+            sh "ansible-playbook /etc/ansible/playbooks/ans_deploy.yml 
+             -e ear_url=\"${artifactURL}\"
+             -e ear_name=\"${artifactName}\" 
+             -e profile_path=\"${profile_path}\"
+             -e profile_file=\"${profile_file}\"
+             -e env_config_path=\"${env_config_path}\" 
+             -e env_config_file=\"${env_config_file}\" 
+             -e host=\"${env.Environment}\""
+ }
+
+ 
