@@ -1,0 +1,22 @@
+{
+
+     String buildJobName, buildJobNumber, environmentName, serviceNowTicket, serviceNowTask
+		
+		String rollbackDeployment = "false"
+		
+		if( "${params.BuildJobName}" == "null")
+         {
+		    echo "params.BuildJobName is null"
+		    buildJobName = "${BuildJobName}"
+			buildJobNumber = "${BuildNumber}"
+			environmentName = "${Environment_Name}"
+		} 
+        else 
+        {
+		    echo "params.BuildJobName is not null"
+		    buildJobName = "${params.BuildJobName}"
+			buildJobNumber = "${params.BuildNumber}"
+			environmentName = "${params.Environment_Name}"
+			rollbackDeployment = "${params.Rollback_Deployment}"
+		}
+}
